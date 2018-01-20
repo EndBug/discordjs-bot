@@ -18,15 +18,21 @@ client.on("debug", (d) => console.info(d));
 client.on("ready", () => {
   var role = guild.roles.get(config.roles.myroles);
 
-  function getRank(member) {
+  /**
+   * getRank - Gets the rank from a given member
+   *
+   * @param  {GuildMember} member The member that you want to get the rank of
+   * @return {number} The number assigned to the role, or 0 by default
+   */
+
+  function getRank(member = {}) {
+    let rank = 0;
     if (member.roles != undefined) {
-      let rank = null;
       for (let id of member.roles.keyArray()) {
         if (id == role.id) rank = 1;
       }
-      return rank;
     }
-    return false;
+    return rank;
   }
 
   if (getRank(guild.members.random()) > 0) console.log("Hey, this example shows that the rank is greater than 0.");
