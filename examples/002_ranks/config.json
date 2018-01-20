@@ -1,0 +1,7 @@
+{
+  "token": "token here",
+  "guild": "guild here",
+  "roles": {
+    "myrole": "id here"
+  }
+}
